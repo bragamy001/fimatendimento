@@ -20,6 +20,9 @@ function calcular() {
     // Arredonda totalHoras para cima
     totalHoras = Math.ceil(totalHoras);
 
+    // Adiciona 2 horas para tempo máximo de faturamento
+    totalHoras += 2;
+
     // Cálculo da previsão de finalização
     const agora = new Date();
     agora.setHours(agora.getHours() + totalHoras);
@@ -58,7 +61,7 @@ function calcular() {
 
     document.getElementById('result').innerHTML = `
         <p><strong>HORAS NECESSÁRIAS:</strong> ${Math.ceil(horasNecessarias).toFixed(0)}</p>
-        <p><strong>TOTAL HORAS (incluindo refeição):</strong> ${totalHoras.toFixed(0)}</p>
+        <p><strong>TOTAL HORAS (incluindo refeição e ajuste):</strong> ${totalHoras.toFixed(0)}</p>
         <p><strong>PREVISÃO DE FINALIZAÇÃO:</strong> ${dataFinalizacao}</p>
         <p><strong>TURNO:</strong> ${turno}</p>
     `;
