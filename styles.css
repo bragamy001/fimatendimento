@@ -20,16 +20,25 @@ h1 {
 
 label {
     display: block;
-    margin: 10px 0 5px;
+    margin: 8px 0 4px;
+    padding: 2px 4px;
+  
+    border-radius: 3px;
+    font-weight: bold; /* Aplica negrito aos títulos */
 }
 
+
+
 input {
-    width: 100%;
+    width: 95%;
     padding: 8px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
+
+
+
 
 button {
     width: 100%;
