@@ -1,0 +1,3 @@
+ <p><strong>TOTAL HORAS (incluindo refeição e ajuste WM):</strong> ${totalHoras.toFixed(0)}</p>
+
+ ficava na linha 62 do script

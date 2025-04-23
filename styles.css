@@ -1,61 +1,82 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: "Roboto", serif;
+    background: linear-gradient(to right, #4facfe, #00f2fe);
     margin: 0;
-    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-size: 18px;
+    
+      
 }
 
-.container {
-    max-width: 400px;
-    margin: auto;
+.menu, .container {
     background: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    text-align: center;
+}
+
+.menu-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 h1 {
-    text-align: center;
+    font-size: 28px;
+    color: #333;
 }
 
 label {
     display: block;
-    margin: 8px 0 4px;
-    padding: 2px 4px;
-    border-radius: 3px;
-    font-weight: bold; /* Aplica negrito aos títulos */
+    text-align: left;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    color: #555;
+    font-size: 18x;
 }
 
-
-
-input {
-    width: 95%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 17px;
 }
-
-
-
 
 button {
     width: 100%;
-    padding: 10px;
-    background-color: #28a745;
+    padding: 12px;
+    background-color: #3a4758;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
+    font-size: 18px;
 }
 
 button:hover {
-    background-color: #218838;
+    background-color: #007bff;
 }
 
 .result {
     margin-top: 20px;
-    padding: 10px;
-    background: #e9ecef;
-    border-radius: 4px;
+    padding: 15px;
+    background: #f1f1f1;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.back-button {
+    background-color: #007bff;
+    margin-top: 10px;
+}
+
+.back-button:hover {
+    background-color: #0056b3;
 }
