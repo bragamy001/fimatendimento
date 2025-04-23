@@ -59,7 +59,7 @@ function calcular() {
     // Atualiza a interface com os resultados
     document.getElementById('result').innerHTML = `
         <p><strong>HORAS NECESSÁRIAS:</strong> ${Math.ceil(horasNecessarias).toFixed(0)}</p>
-       
+        <p><strong>TOTAL HORAS (incluindo refeição e ajuste WM):</strong> ${totalHoras.toFixed(0)}</p>
         <p><strong>PREVISÃO DE FINALIZAÇÃO:</strong> ${dataFinalizacao}</p>
         <p><strong>TURNO:</strong> ${turno}</p>
     `;
