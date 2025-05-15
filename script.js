@@ -21,7 +21,7 @@ function calcular() {
     totalHoras = Math.ceil(totalHoras);
 
     // Adiciona 2 horas ao tempo total (ajuste máximo de faturamento)
-    totalHoras += 3;
+    totalHoras += 2;
 
     // Previsão de finalização com ajustes
     const agora = new Date();
@@ -83,15 +83,89 @@ function calcularSimulador() {
 }
 
 function mostrarPainel(painel) {
-    document.querySelector('.menu').style.display = 'none';
-    document.getElementById('previsao').style.display = 'none';
-    document.getElementById('simulador').style.display = 'none';
+    esconderTodosOsPaineis();
     document.getElementById(painel).style.display = 'block';
 }
 
+
 function voltarMenu() {
+    esconderTodosOsPaineis();
     document.querySelector('.menu').style.display = 'block';
+}
+
+    
+
+function calcularPrevisaoComHorario() {
+    const dataInicio = document.getElementById('dataInicio').value;
+    const horaInicio = document.getElementById('horaInicio').value;
+    const caixasFaltando = parseFloat(document.getElementById('caixasFaltandoHorario').value);
+    const capacidade = parseFloat(document.getElementById('capacidadeHorario').value);
+
+    if (!dataInicio || !horaInicio || isNaN(caixasFaltando) || isNaN(capacidade) || capacidade <= 0) {
+        alert('Por favor, preencha todos os campos corretamente.');
+        return;
+    }
+
+    // Cálculo das horas necessárias
+    const horasNecessarias = caixasFaltando / capacidade;
+
+    // Cálculo do total de horas (incluindo refeição)
+    let totalHoras = horasNecessarias;
+
+    // Adiciona 1 hora de refeição a cada 7 horas trabalhadas
+    const horasExtras = Math.floor(horasNecessarias / 7);
+    totalHoras += horasExtras;
+
+    // Arredonda pra cima
+    totalHoras = Math.ceil(totalHoras);
+
+    // Cria data inicial baseada nos campos
+    const dataHoraInicio = new Date(`${dataInicio}T${horaInicio}`);
+
+    // Adiciona as horas calculadas
+    dataHoraInicio.setHours(dataHoraInicio.getHours() + totalHoras);
+
+    // Verifica ceia
+    const horaFinalizacao = dataHoraInicio.getHours();
+    if (horaFinalizacao >= 1 && horaFinalizacao < 2) {
+        totalHoras += 1;
+        dataHoraInicio.setHours(dataHoraInicio.getHours() + 1);
+    }
+
+    // Formatação da data final
+    const dataFinalizacao = dataHoraInicio.toLocaleString('pt-BR', {
+        timeZone: 'America/Sao_Paulo',
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+    });
+
+    // Turno
+    const horaFinal = dataHoraInicio.getHours();
+    let turno;
+    if (horaFinal >= 6 && horaFinal < 14) {
+        turno = '1° TURNO';
+    } else if (horaFinal >= 14 && horaFinal < 22) {
+        turno = '2° TURNO';
+    } else {
+        turno = '3° TURNO';
+    }
+
+    // Mostra resultado
+    document.getElementById('resultPrevisaoComHorario').innerHTML = `
+        <p><strong>HORAS NECESSÁRIAS:</strong> ${Math.ceil(horasNecessarias).toFixed(0)}</p>
+        <p><strong>PREVISÃO DE FINALIZAÇÃO:</strong> ${dataFinalizacao}</p>
+        <p><strong>TURNO:</strong> ${turno}</p>
+    `;
+}
+
+function esconderTodosOsPaineis() {
+    document.querySelector('.menu').style.display = 'none';
     document.getElementById('previsao').style.display = 'none';
     document.getElementById('simulador').style.display = 'none';
+    document.getElementById('previsaoComHorario').style.display = 'none';
 }
-    
+

@@ -16,6 +16,9 @@
             <h1>Simulador e Previsão de Atendimento</h1>
             <button onclick="mostrarPainel('previsao')">Previsão Fim Atendimento</button>
             <button onclick="mostrarPainel('simulador')">Simulador de Volume a Ser Atendido</button>
+            <button onclick="mostrarPainel('previsaoComHorario')">Previsão com Data/Hora</button>
+
+
         </div>
     </div>
 
@@ -36,6 +39,31 @@
         <div class="result" id="result"></div>
         <button class="back-button" onclick="voltarMenu()">Voltar ao Menu</button>
     </div>
+
+
+<!-- Painel de Previsão com Data e Hora -->
+<div class="container" id="previsaoComHorario" style="display: none;">
+    <h1>Previsão Fim Atendimento (com Data e Hora)</h1>
+
+    <label for="dataInicio">Data de Início:</label>
+    <input type="date" id="dataInicio">
+
+    <label for="horaInicio">Hora de Início:</label>
+    <input type="time" id="horaInicio">
+
+    <label for="caixasFaltandoHorario">Caixas/peças que faltam:</label>
+    <input type="number" id="caixasFaltandoHorario" placeholder="Digite a quantidade de caixas/peças que faltam">
+
+    <label for="capacidadeHorario">Capacidade por Hora:</label>
+    <input type="number" id="capacidadeHorario" placeholder="Digite a capacidade por hora">
+
+    <button onclick="calcularPrevisaoComHorario()">Calcular Previsão</button>
+
+    <div class="result" id="resultPrevisaoComHorario"></div>
+    <button class="back-button" onclick="voltarMenu()">Voltar ao Menu</button>
+</div>
+
+
 
     <!-- Painel de Simulador -->
     <div class="container" id="simulador" style="display: none;">
