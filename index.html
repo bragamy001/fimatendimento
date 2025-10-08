@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador e Previsão</title>
+    <title>Logística | Simulador e Previsão</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="icon.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,18 +13,16 @@
 <body>
     <div class="menu">
         <div class="menu-container">
-            <h1>Simulador e Previsão de Atendimento</h1>
+            <h1><span class="icon">🚚</span> Simulador e Previsão de Atendimento</h1>
             <button onclick="mostrarPainel('previsao')">Previsão Fim Atendimento</button>
-            <button onclick="mostrarPainel('simulador')">Simulador de Volume a Ser Atendido</button>
             <button onclick="mostrarPainel('previsaoComHorario')">Previsão com Data/Hora</button>
 
 
         </div>
     </div>
 
-    <!-- Painel de Previsão -->
     <div class="container" id="previsao" style="display: none;">
-        <h1>Previsão Fim Atendimento</h1>
+        <h1><span class="icon">⏱️</span> Previsão Fim Atendimento</h1>
         <label for="caixasFaltando">Caixas/peças que faltam:</label>
         <input type="number" id="caixasFaltando" placeholder="Digite a quantidade de caixas/peças que faltam">
 
@@ -41,9 +39,8 @@
     </div>
 
 
-<!-- Painel de Previsão com Data e Hora -->
 <div class="container" id="previsaoComHorario" style="display: none;">
-    <h1>Previsão Fim Atendimento (com Data e Hora)</h1>
+    <h1><span class="icon">📅</span> Previsão Fim Atendimento (com Data e Hora)</h1>
 
     <label for="dataInicio">Data de Início:</label>
     <input type="date" id="dataInicio">
@@ -65,9 +62,8 @@
 
 
 
-    <!-- Painel de Simulador -->
     <div class="container" id="simulador" style="display: none;">
-        <h1>Simulador de Volume</h1>
+        <h1><span class="icon">📊</span> Simulador de Volume</h1>
         <label for="diaSemana">Qual o dia da semana do atendimento?</label>
         <select id="diaSemana">
             <option value="" disabled selected>Escolha o dia da semana</option>
